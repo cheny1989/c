@@ -55,7 +55,7 @@ class ServersList extends Component {
 
         return (
             <div>
-                <Typography variant="h2">Assignment number 3</Typography>
+                <Typography variant="h2">Assignment number 3 - Chen</Typography>
                 <br />
                 <hr />
                 <label>Filter by date: </label>

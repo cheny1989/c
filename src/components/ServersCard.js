@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, TableCell, TableContainer, Typography, Paper, Table, TableHead, TableRow } from '@material-ui/core';
+import { Switch, TableCell, Table, TableHead, TableRow } from '@material-ui/core';
 
 class ServersCard extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class ServersCard extends Component {
         }
     }
 
-    changeStatus() {        
+    changeStatus() {
         let id = this.props.server.id;
         let status = this.props.server.status;
         console.log(" id:" + id + " status:" + status)
@@ -27,26 +27,24 @@ class ServersCard extends Component {
 
         return (
             <div>
-                <TableContainer component={Paper}>
-                    <Table size="small" aria-label="a dense table">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell className="rowTable" align="center">ID: {this.props.server.id}</TableCell>
-                                <TableCell className="rowTable" align="center">Name: {this.props.server.name}</TableCell>
-                                <TableCell className="rowTable" align="center">Ip Adress: {this.props.server.ip}</TableCell>
-                                <TableCell className="rowTable" align="center">Company of Servers: {this.props.server.hostingcompany}</TableCell>
-                                <TableCell className="rowTable" align="center">Created at: {this.props.server.time}</TableCell>
-                                <TableCell className="rowTable" align="left">Status: {this.props.server.status}</TableCell>
-                                <TableCell className="rowTable">
-                                    <Typography>
-                                        <Typography variant="body2">Status: {this.props.server.status}</Typography>
-                                        <Switch onClick={() => this.changeStatus()}></Switch>
-                                    </Typography>
-                                </TableCell>
-                            </TableRow>
-                        </TableHead>
-                    </Table>
-                </TableContainer>
+                <Table size="small" aria-label="a dense table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell className="rowTable" align="center">ID: {this.props.server.id}</TableCell>
+                            <TableCell className="rowTable" align="center">Name: {this.props.server.name}</TableCell>
+                            <TableCell className="rowTable" align="center">Ip Adress: {this.props.server.ip}</TableCell>
+                            <TableCell className="rowTable" align="center">Company of Servers: {this.props.server.hostingcompany}</TableCell>
+                            <TableCell className="rowTable" align="center">Created at: {this.props.server.time}</TableCell>
+                            <TableCell className="rowTable" align="left">Status: {this.props.server.status}</TableCell>
+                            <TableCell className="rowTable">
+                                <div>
+                                    <div variant="body2">Status: {this.props.server.status}</div>
+                                    <Switch onClick={() => this.changeStatus()}></Switch>
+                                </div>
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+                </Table>
             </div>
         );
     }

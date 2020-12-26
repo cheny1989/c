@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ServersCard from "./ServersCard"
-import { Grid, Typography, Checkbox } from '@material-ui/core';
+import { Grid, Checkbox } from '@material-ui/core';
 
 class ServersList extends Component {
     constructor(props) {
@@ -50,12 +50,18 @@ class ServersList extends Component {
         console.log(originalState)
     }
 
+    filterByDate(){
+        const filter = this.state.servers;
+        console.log(filter)
+    }
+
     render() {
         const filteredServers = this.state.servers.filter(s => s.time.indexOf(this.state.filterString) >= 0); // filtert date
 
         return (
             <div>
-                <Typography variant="h2">Assignment number 3 - Chen</Typography>
+                <button onClick={()=> this.filterByDate()}>click to filter by date</button>
+                <h2>Assignment num 3</h2>
                 <br />
                 <hr />
                 <label>Filter by date: </label>
@@ -78,7 +84,7 @@ class ServersList extends Component {
                 <Grid container direction="column" alignItems="stretch" spacing={4} xs={12} sm={12} item={true}  >
                     {filteredServers.sort((d1, d2) => d1.time - d2.time).map(s =>
                         <Grid item key={s.id} >
-                            <ServersCard server={s} />
+                            <ServersCard server={s} onStatusChanged={(id, serverId) => this.onStatusChanged(id, serverId)} />
                         </Grid>
                     )}
                 </Grid>
